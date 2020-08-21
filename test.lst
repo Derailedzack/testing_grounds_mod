@@ -1,0 +1,90 @@
+00000000 =00018A92                  test equ 101010
+00000000                            Vectors:	;dc.l v_systemstack&$FFFFFF	; Initial stack pointer value
+00000000 0000 0000                  		dc.l main			; Start of program
+00000004 0000 0000                  		dc.l BusError			; Bus error
+00000008 0000 0000                  		dc.l AddressError		; Address error (4)
+0000000C 0000 0000                  		dc.l IllegalInstr		; Illegal instruction
+00000010 0000 0000                  		dc.l ZeroDivide			; Division by zero
+00000014 0000 0000                  		dc.l ChkInstr			; CHK exception
+00000018 0000 0000                  		dc.l TrapvInstr			; TRAPV exception (8)
+0000001C 0000 0000                  		dc.l PrivilegeViol		; Privilege violation
+00000020 0000 0000                  		dc.l Trace				; TRACE exception
+00000024 0000 0000                  		dc.l Line1010Emu		; Line-A emulator
+00000028 0000 0000                  		dc.l Line1111Emu		; Line-F emulator (12)
+0000002C 0000 0000                  		dc.l ErrorExcept		; Unused (reserved)
+00000030 0000 0000                  		dc.l ErrorExcept		; Unused (reserved)
+00000034 0000 0000                  		dc.l ErrorExcept		; Unused (reserved)
+00000038 0000 0000                  		dc.l ErrorExcept		; Unused (reserved) (16)
+0000003C 0000 0000                  		dc.l ErrorExcept		; Unused (reserved)
+00000040 0000 0000                  		dc.l ErrorExcept		; Unused (reserved)
+00000044 0000 0000                  		dc.l ErrorExcept		; Unused (reserved)
+00000048 0000 0000                  		dc.l ErrorExcept		; Unused (reserved) (20)
+0000004C 0000 0000                  		dc.l ErrorExcept		; Unused (reserved)
+00000050 0000 0000                  		dc.l ErrorExcept		; Unused (reserved)
+00000054 0000 0000                  		dc.l ErrorExcept		; Unused (reserved)
+00000058 0000 0000                  		dc.l ErrorExcept		; Unused (reserved) (24)
+0000005C 0000 0000                  		dc.l ErrorExcept		; Spurious exception
+00000060 0000 0000                  		dc.l ErrorTrap			; IRQ level 1
+00000064 0000 0000                  		dc.l ErrorTrap			; IRQ level 2
+00000068 0000 0000                  		dc.l ErrorTrap			; IRQ level 3 (28)
+0000006C 0000 0000                  		dc.l HBlank				; IRQ level 4 (horizontal retrace interrupt)
+00000070 0000 0000                  		dc.l ErrorTrap			; IRQ level 5
+00000074 0000 0000                  		dc.l VBlank				; IRQ level 6 (vertical retrace interrupt)
+00000078 0000 0000                  		dc.l ErrorTrap			; IRQ level 7 (32)
+0000007C 0000 0000                  		dc.l ErrorTrap			; TRAP #00 exception
+00000080 0000 0000                  		dc.l ErrorTrap			; TRAP #01 exception
+00000084 0000 0000                  		dc.l ErrorTrap			; TRAP #02 exception
+00000088 0000 0000                  		dc.l ErrorTrap			; TRAP #03 exception (36)
+0000008C 0000 0000                  		dc.l ErrorTrap			; TRAP #04 exception
+00000090 0000 0000                  		dc.l ErrorTrap			; TRAP #05 exception
+00000094 0000 0000                  		dc.l ErrorTrap			; TRAP #06 exception
+00000098 0000 0000                  		dc.l ErrorTrap			; TRAP #07 exception (40)
+0000009C 0000 0000                  		dc.l ErrorTrap			; TRAP #08 exception
+000000A0 0000 0000                  		dc.l ErrorTrap			; TRAP #09 exception
+000000A4 0000 0000                  		dc.l ErrorTrap			; TRAP #10 exception
+000000A8 0000 0000                  		dc.l ErrorTrap			; TRAP #11 exception (44)
+000000AC 0000 0000                  		dc.l ErrorTrap			; TRAP #12 exception
+000000B0 0000 0000                  		dc.l ErrorTrap			; TRAP #13 exception
+000000B4 0000 0000                  		dc.l ErrorTrap			; TRAP #14 exception
+000000B8 0000 0000                  		dc.l ErrorTrap			; TRAP #15 exception (48)
+000000BC 0000 0000                  		dc.l ErrorTrap			; Unused (reserved)
+000000C0 0000 0000                  		dc.l ErrorTrap			; Unused (reserved)
+000000C4 0000 0000                  		dc.l ErrorTrap			; Unused (reserved)
+000000C8 0000 0000                  		dc.l ErrorTrap			; Unused (reserved)
+000000CC 0000 0000                  		dc.l ErrorTrap			; Unused (reserved)
+000000D0 0000 0000                  		dc.l ErrorTrap			; Unused (reserved)
+000000D4 0000 0000                  		dc.l ErrorTrap			; Unused (reserved)
+000000D8 0000 0000                  		dc.l ErrorTrap			; Unused (reserved)
+000000DC                            main:
+000000DC                            	;lea d0,$test
+000000DC                            	;add.w #1,test
+000000DC                            	divu d0,0
+000000DC 4E75                       	rts
+000000DE                            BusError:
+000000DE 4E75                       	rts
+000000E0                            AddressError:
+000000E0 4E75                       	rts
+000000E2                            IllegalInstr:
+000000E2 4E75                       	rts
+000000E4                            ZeroDivide:
+000000E4 4E75                       	rts
+000000E6                            ChkInstr:
+000000E6 4E75                       	rts
+000000E8                            TrapvInstr:
+000000E8 4E75                       	rts
+000000EA                            PrivilegeViol:
+000000EA 4E75                       	rts
+000000EC                            Trace:
+000000EC 4E75                       	rts
+000000EE                            Line1010Emu:
+000000EE 4E75                       	rts
+000000F0                            Line1111Emu:
+000000F0 4E75                       	rts
+000000F2                            ErrorExcept:
+000000F2 4E75                       	rts
+000000F4                            ErrorTrap:
+000000F4 4E75                       	rts
+000000F6                            HBlank:
+000000F6 4E75                       	rts
+000000F8                            VBlank:
+000000F8 4E75                       	rts
