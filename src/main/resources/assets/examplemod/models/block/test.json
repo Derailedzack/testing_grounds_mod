@@ -3,7 +3,7 @@
         "particle": "block/dirt",
         "bottom": "examplemod:block/test_old_style_bottom",
         "top": "examplemod:block/test_old_style_bottom",
-        "side": "examplemod:block/test"
+        "side": "examplemod:block/test_old"
 
     },
     "elements": [
