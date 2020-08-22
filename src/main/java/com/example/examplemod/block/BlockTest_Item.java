@@ -7,6 +7,6 @@ public class BlockTest_Item extends BlockItem {
     public BlockTest_Item(Block blockIn, Properties builder) {
         super(blockIn, builder);
 
-        this.setRegistryName("examplemod","test");
+       // this.setRegistryName("examplemod","test");
     }
 }
